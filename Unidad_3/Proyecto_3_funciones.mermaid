@@ -1,25 +1,29 @@
 flowchart TD
 
-A1[Inicio función get_admitted_aspirants] --> B1[Imprimir nombre del departamento]
+subgraph get_admitted_aspirants
+A1([Inicio función get_admitted_aspirants]) --> B1[Imprimir nombre del departamento]
 B1 --> C1[Calcular número de admitidos actuales en el departamento]
 C1 --> D1[Calcular cupos disponibles N_disponibles = N - N_admitidos]
 D1 --> E1{¿N_disponibles <= 0?}
-E1 -- Sí --> F1[Imprimir 'Departamento sin cupo'] --> Z1[Retornar tabla admitidos]
-E1 -- No --> G1[Filtrar aspirantes con esa opción]
+E1 -- sí --> F1[Imprimir 'Departamento sin cupo'] --> Z1[Retornar tabla de admitidos]
+E1 -- no --> G1[Filtrar aspirantes con esa opción]
 G1 --> H1{¿Existen aspirantes en este departamento?}
-H1 -- No --> I1[Imprimir 'No hay aspirantes'] --> Z1
-H1 -- Sí --> J1[Ordenar aspirantes por puntaje descendente]
+H1 -- no --> I1[Imprimir 'No hay aspirantes'] --> Z1
+H1 -- sí --> J1[Ordenar aspirantes por puntaje descendente]
 J1 --> K1[Seleccionar N_disponibles mejores aspirantes]
 K1 --> L1[Crear DataFrame con nombre, depto, puntaje, opción]
 L1 --> M1[Mostrar lista de admitidos]
 M1 --> N1{¿Tabla de admitidos vacía?}
 N1 -- Sí --> O1[Asignar admitidos = aspirantes del depto]
+O1 --> Z1
 N1 -- No --> P1[Concatenar con tabla de admitidos existente]
-O1 --> Z1[Retornar tabla admitidos]
 P1 --> Z1
-Z1 --> Q1[Fin función]
+Z1 --> Q1([Fin de función])
+end
 
-R1[Inicio función remove_admitted_aspirants] --> R2[Obtener lista de admitidos por nombre]
+subgraph remove_admitted_aspirants
+R1([Inicio función remove_admitted_aspirants]) --> R2[Obtener lista de admitidos por nombre]
 R2 --> R3[Filtrar df eliminando los nombres admitidos]
 R3 --> R4[Retornar df depurado]
-R4 --> R5[Fin función]
+R4 --> R5([Fin función])
+end
