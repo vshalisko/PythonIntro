@@ -24,8 +24,8 @@ end
 
 subgraph remove_admitted_aspirants
 direction TB
-R1([Inicio función remove_admitted_aspirants]) --> R2[Obtener lista de admitidos por nombre]
-R2 --> R3[Filtrar df eliminando los nombres admitidos]
-R3 --> R4[Retornar df depurado]
+R1([Inicio función remove_admitted_aspirants con parámetros lista de aspirantes, lista de admitidos]) --> R2
+R2[Obtener lista de admitidos por nombre] --> R3[Filtrar lista de aspirantes eliminando los nombres admitidos]
+R3 --> R4[Retornar lista de aspirantes depurado]
 R4 --> R5([Fin función])
 end
