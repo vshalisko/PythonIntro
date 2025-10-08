@@ -29,3 +29,35 @@ R2[Obtener lista de admitidos por nombre] --> R3[Filtrar lista de aspirantes eli
 R3 --> R4[Retornar lista de aspirantes depurado]
 R4 --> R5([Fin función])
 end
+
+subgraph calcular_puntaje_admision
+direccion TB
+flowchart TD
+
+A2([Inicio de función calcular_puntaje_admision]) --> B2[Recibir datos del aspirante y nombre del departamento]
+
+B2 --> C2{Departamento}
+C2 --> D21[Physics]
+C2 --> D22[Mathematics]
+C2 --> D23[Engineering]
+C2 --> D24[Chemistry]
+C2 --> D25[Biotech]
+C2 --> D26[Otro]
+
+D21 --> E21[Seleccionar puntajes EPH, EMA, ESP]
+D22 --> E22[Seleccionar puntajes EMA, ECS, ESP]
+D23 --> E23[Seleccionar puntajes EMA, ECS, EPH, ESP]
+D24 --> E24[Seleccionar puntajes ECH, EPH, ESP]
+D25 --> E25[Seleccionar puntajes EMA, ECS, ECH, ESP]
+D26 --> F21[Retornar None]
+
+E21 --> G2[Calcular promedio de puntajes]
+E22 --> G2
+E23 --> G2
+E24 --> G2
+E25 --> G2
+
+G2 --> H2[Redondear promedio a 2 decimales]
+H2 --> I2[Retornar valor calculado]
+I2 --> J2[Fin de función]
+end
