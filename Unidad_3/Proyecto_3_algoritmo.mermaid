@@ -7,7 +7,7 @@ B --> E[Copiar tabla original de aspirantes]
 D --> F[Definir lista de opciones de preferencia de aspirantes: OP1, OP2, OP3]
 C --> G
 E --> G
-subraph bucle_admision
+subgraph bucle_admision
 F --> G[Iniciar bucle para iterar por cada opcion de preferencia de aspirante]
 G --> H[Tomar la preferencia de departamento actual]
 H --> I[Iniciar bucle para iterar por la lista de departamentos]
@@ -16,11 +16,11 @@ J --> K[Llamar función get_admitted_aspirants con la preferencia de departament
 K --> L[Actualizar tabla de admitidos]
 L --> M[Llamar función remove_admitted_aspirants para depurar tabla de aspirantes]
 M --> N[¿Quedan departamentos por procesar?]
-N -- Sí --> I
-N -- No --> O[Contar e imprimir número acumulado de admitidos hasta ahora]
+N -- sí --> I
+N -- no --> O[Contar e imprimir número acumulado de admitidos hasta ahora]
 O --> P[¿Quedan opciones de preferencia por procesar?]
-P -- Sí --> G
+P -- sí --> G
+P -- no --> Q[Mostrar total final de aspirantes admitidos]
 end
-P -- No --> Q[Mostrar total final de aspirantes admitidos]
 Q --> R[Mostrar lista de aspirantes no admitidos]
 R --> S([Fin])
