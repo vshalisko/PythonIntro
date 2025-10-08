@@ -3,7 +3,9 @@ flowchart TD
 A([Inicio]) --> B[/Leer archivo CSV con datos de aspirantes/]
 A --> C[/Solicitar número máximo de alumnos por departamento N/]
 A --> D[Inicializar tabla de aspirantes admitidos vacía]
-B --> E[Copiar tabla original de aspirantes]
+B --> B1[Construir la columna de nombre completo]
+B1 --> B2[Calcular puntajes de admisión para las opciones de preferencia de aspirantes y guardarlos en las columnas correspondientes]
+B2 --> E[Copiar tabla original de aspirantes]
 D --> F[Definir lista de opciones de preferencia de aspirantes: OP1, OP2, OP3]
 C --> G
 E --> G
