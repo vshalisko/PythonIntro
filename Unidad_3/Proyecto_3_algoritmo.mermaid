@@ -7,17 +7,20 @@ B --> E[Copiar tabla original de aspirantes]
 D --> F[Definir lista de opciones de preferencia de aspirantes: OP1, OP2, OP3]
 C --> G
 E --> G
+subraph bucle_admision
 F --> G[Iniciar bucle para iterar por cada opcion de preferencia de aspirante]
-G --> H[Tomar la opción actual]
+G --> H[Tomar la preferencia de departamento actual]
 H --> I[Iniciar bucle para iterar por la lista de departamentos]
 I --> J[Tomar el departamento actual]
-J --> K[Llamar función get_admitted_aspirants con la opción actual y el departamento]
+J --> K[Llamar función get_admitted_aspirants con la preferencia de departamento actual y el departamento]
 K --> L[Actualizar tabla de admitidos]
 L --> M[Llamar función remove_admitted_aspirants para depurar tabla de aspirantes]
 M --> N[¿Quedan departamentos por procesar?]
 N -- Sí --> I
-N -- No --> O[Contar e imprimir número acumulado de admitidos]
-O --> P[¿Quedan opciones por procesar?]
+N -- No --> O[Contar e imprimir número acumulado de admitidos hasta ahora]
+O --> P[¿Quedan opciones de preferencia por procesar?]
 P -- Sí --> G
+end
 P -- No --> Q[Mostrar total final de aspirantes admitidos]
-Q --> R([Fin])
+Q --> R[Mostrar lista de aspirantes no admitidos]
+R --> S([Fin])
