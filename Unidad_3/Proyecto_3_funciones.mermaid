@@ -35,7 +35,7 @@ direction TB
 
 A2([Inicio de función calcular_puntaje_admision]) --> B2[Recibir datos del aspirante y nombre del departamento]
 
-B2 --> C2{Departamento}
+B2 --> C2{Selector Departamento}
 C2 --> D21[Physics]
 C2 --> D22[Mathematics]
 C2 --> D23[Engineering]
@@ -58,5 +58,6 @@ E25 --> G2
 
 G2 --> H2[Redondear promedio a 2 decimales]
 H2 --> I2[Retornar valor calculado]
-I2 --> J2[Fin de función]
+I2 --> J2([Fin de función])
+F21 --> J2
 end
