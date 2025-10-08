@@ -13,8 +13,7 @@ F[Transformar archivo JSON a un diccionario] --> H
 subgraph conversion
 H[Iniciar el bucle de conversion de divisas] --> I
 I[/Preguntar usuario por el codigo de divisa de destino/] --> J
-J{Usuario no itrodujo código y presiono Enter?} -- si --> Z
-J -- no --> K
+J{Usuario no itrodujo código y presiono Enter?} -- no --> K
 K{El codigo de divisa de destiono existe en diccionario} -- si --> L
 K -- no --> M
 M[Informar el usuario que la divisa de destino no fue encontrada] --> I
@@ -27,5 +26,7 @@ P[Informar el usuario que la cantidad introducida no fue correcta] --> I
 O[Tomar la tasa de cambio a divisa destino de diccionario y multiplicar por la cantidad] --> Q
 Q[Imprimir el resultado de conversión] --> I
 end
+
+J -- si --> Z
 
 Z([Fin])
