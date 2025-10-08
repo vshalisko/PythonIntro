@@ -4,25 +4,28 @@ A([Inicio]) --> B
 B[Imprimir saludo y las reglas de uso] --> C
 C[/Preguntar el usuario por el código de la divisa de origen/] --> D
 D[Intentar de descargar el archivo JSON con datos de la divisa de origen] --> E
-E{Intento de descarga fue exitoso?} --si--> F
-E --no--> G
+E{Intento de descarga fue exitoso?} -- si --> F
+E -- no --> G
 G[Informar usuario de que la divisa de origen no fue encontrada] --> Z
 
 F[Transformar archivo JSON a un diccionario] --> H
+
+subgraph conversion
 H[Iniciar el bucle de conversion de divisas] --> I
 I[/Preguntar usuario por el codigo de divisa de destino/] --> J
-J{Usuario no itrodujo código y presiono Enter?} --si--> Z
-J --no--> K
-K{El codigo de divisa de destiono existe en diccionario} --si--> L
-K --no--> M
+J{Usuario no itrodujo código y presiono Enter?} -- si --> Z
+J -- no --> K
+K{El codigo de divisa de destiono existe en diccionario} -- si --> L
+K -- no --> M
 M[Informar el usuario que la divisa de destino no fue encontrada] --> I
 
 L[/Preguntar el usuario por la cantidad a convertir/] --> N
-N{Usuario introdujo dato numerico?} --si--> O
-N --no--> P
+N{Usuario introdujo dato numerico?} -- si --> O
+N -- no --> P
 P[Informar el usuario que la cantidad introducida no fue correcta] --> I
 
 O[Tomar la tasa de cambio a divisa destino de diccionario y multiplicar por la cantidad] --> Q
 Q[Imprimir el resultado de conversión] --> I
+end
 
 Z([Fin])
