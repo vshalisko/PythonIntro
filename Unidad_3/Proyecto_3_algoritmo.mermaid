@@ -15,7 +15,7 @@ subgraph bucle_admision
 G[Iniciar bucle para iterar por cada opcion de preferencia de aspirante] --> H[Tomar la preferencia de departamento actual]
 H --> I[Iniciar bucle para iterar por la lista de departamentos]
 I --> J[Tomar el departamento actual]
-J --> K[Llamar función get_admitted_aspirants con la preferencia de departamento actual y el departamento]
+J --> K[Llamar función get_admitted_aspirants con los parámetros orden de preferencia de aspirante y departamento]
 K --> L[Actualizar tabla de admitidos]
 L --> M[Llamar función remove_admitted_aspirants para depurar tabla de aspirantes]
 M --> N[¿Quedan departamentos por procesar?]
