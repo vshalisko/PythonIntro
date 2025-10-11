@@ -1,5 +1,15 @@
 flowchart TD
 
+subgraph remove_admitted_aspirants
+direction TB
+R0([Inicio función remove_admitted_aspirants]) --> R1
+R1[/Recibir los parámetros: lista de aspirantes, lista de admitidos/] --> R2
+R2[Obtener lista de admitidos por nombre] --> R3
+R3[Filtrar lista de aspirantes eliminando los nombres admitidos] --> R4
+R4[/Retornar la lista de aspirantes depurado/] --> R5
+R5([Fin función])
+end
+
 subgraph get_admitted_aspirants
 direction TB
 A1([Inicio función get_admitted_aspirants con parámetros departamento, orden de preferencia, tabla de admitidos, tabla de aspirantes]) --> B1
@@ -22,19 +32,11 @@ P1 --> Z1
 Z1 --> Q1([Fin de función])
 end
 
-subgraph remove_admitted_aspirants
-direction TB
-R1([Inicio función remove_admitted_aspirants con parámetros lista de aspirantes, lista de admitidos]) --> R2
-R2[Obtener lista de admitidos por nombre] --> R3[Filtrar lista de aspirantes eliminando los nombres admitidos]
-R3 --> R4[Retornar lista de aspirantes depurado]
-R4 --> R5([Fin función])
-end
+
 
 subgraph calcular_puntaje_admision
 direction TB
-
 A2([Inicio de función calcular_puntaje_admision]) --> B2[Recibir datos del aspirante y nombre del departamento]
-
 B2 --> C2{Selector Departamento}
 C2 --> D21[Physics]
 C2 --> D22[Mathematics]
