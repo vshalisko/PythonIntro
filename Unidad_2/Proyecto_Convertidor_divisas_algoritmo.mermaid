@@ -3,10 +3,10 @@ flowchart TD
 A([Inicio]) --> B
 B[Imprimir saludo y las reglas de uso] --> C
 C[/Preguntar el usuario por el código de la divisa de origen/] --> D
-D[Intentar de descargar el archivo JSON con datos de la divisa de origen] --> E
+D[[Intentar de descargar el archivo JSON con datos de la divisa de origen]] --> E
 E{Intento de descarga fue exitoso?} -- si --> F
 E -- no --> G
-G[Informar usuario de que la divisa de origen no fue encontrada] --> Z
+G[/Informar usuario de que la divisa de origen no fue encontrada/] --> Z
 
 F[Transformar archivo JSON a un diccionario] --> H
 
@@ -21,10 +21,10 @@ M[Informar el usuario que la divisa de destino no fue encontrada] --> I
 L[/Preguntar el usuario por la cantidad a convertir/] --> N
 N{Usuario introdujo dato numerico?} -- si --> O
 N -- no --> P
-P[Informar el usuario que la cantidad introducida no fue correcta] --> I
+P[/Informar el usuario que la cantidad introducida no fue correcta/] --> I
 
 O[Tomar la tasa de cambio a divisa destino de diccionario y multiplicar por la cantidad] --> Q
-Q[Imprimir el resultado de conversión] --> I
+Q[/Imprimir el resultado de conversión/] --> I
 end
 
 J -- si --> Z
