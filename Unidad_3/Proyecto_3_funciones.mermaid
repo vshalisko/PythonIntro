@@ -12,30 +12,23 @@ end
 
 subgraph calcular_puntaje_admision
 direction TB
-A2([Inicio de función calcular_puntaje_admision]) --> B2[Recibir datos del aspirante y nombre del departamento]
-B2 --> C2{Selector Departamento}
-C2 --> D21[Physics]
-C2 --> D22[Mathematics]
-C2 --> D23[Engineering]
-C2 --> D24[Chemistry]
-C2 --> D25[Biotech]
-C2 --> D26[Otro]
+A2([Inicio de función calcular_puntaje_admision]) --> B2
+B2[/Recibir datos del aspirante y nombre del departamento/] --> C2
+C2{Selector Departamento} -- Physics --> E21 
+C2 -- Mathematics --> E22
+C2 -- Engineering --> E23
+C2 -- Chemistry --> E24
+C2 -- Biotech --> E25
+C2 -- Otro --> F21
 
-D21 --> E21[Seleccionar puntajes EPH, EMA, ESP]
-D22 --> E22[Seleccionar puntajes EMA, ECS, ESP]
-D23 --> E23[Seleccionar puntajes EMA, ECS, EPH, ESP]
-D24 --> E24[Seleccionar puntajes ECH, EPH, ESP]
-D25 --> E25[Seleccionar puntajes EMA, ECS, ECH, ESP]
-D26 --> F21[Retornar None]
-
-E21 --> G2[Calcular promedio de puntajes]
-E22 --> G2
-E23 --> G2
-E24 --> G2
-E25 --> G2
+E21[Seleccionar puntajes EPH, EMA, ESP] --> G2[Calcular promedio de puntajes]
+E22[Seleccionar puntajes EMA, ECS, ESP] --> G2
+E23[Seleccionar puntajes EMA, ECS, EPH, ESP] --> G2
+E24[Seleccionar puntajes ECH, EPH, ESP] --> G2
+E25[Seleccionar puntajes EMA, ECS, ECH, ESP] --> G2
 
 G2 --> H2[Redondear promedio a 2 decimales]
 H2 --> I2[Retornar valor calculado]
 I2 --> J2([Fin de función])
-F21 --> J2
+F21[Retornar None] --> J2
 end
