@@ -5,7 +5,7 @@ A --> C[/Solicitar número máximo de alumnos por departamento N/]
 A --> D[Inicializar tabla de aspirantes admitidos vacía]
 B --> B1[Construir la columna de nombre completo]
 B1 --> B2[Calcular puntajes de admisión para las opciones de preferencia de aspirantes y guardarlos en las columnas correspondientes]
-B2 --> E[Hacer una copia de tabla de aspirantes]
+B2 --> E[Hacer una copia de tabla de aspirantes para realizar modificaciones en una copia de datos, si dañar los datos originales]
 D --> F1[Definir lista de opciones de preferencia de aspirantes: OP1, OP2, OP3]
 F1 --> F[Definir lista de departamentos]
 C --> G
@@ -15,15 +15,15 @@ subgraph bucle_admision
 G[Iniciar bucle para iterar por cada opcion de preferencia de aspirante] --> H[Tomar la preferencia de departamento actual]
 H --> I[Iniciar bucle para iterar por la lista de departamentos]
 I --> J[Tomar el departamento actual]
-J --> K[Llamar función get_admitted_aspirants con los parámetros orden de preferencia de aspirante y departamento]
+J --> K[[Llamar función get_admitted_aspirants con los parámetros orden de preferencia de aspirante y departamento]]
 K --> L[Actualizar tabla de admitidos]
-L --> M[Llamar función remove_admitted_aspirants para depurar tabla de aspirantes]
+L --> M[[Llamar función remove_admitted_aspirants para depurar tabla de aspirantes]]
 M --> N[¿Quedan departamentos por procesar?]
 N -- sí --> I
-N -- no --> O[Contar e imprimir número acumulado de admitidos hasta ahora]
+N -- no --> O[/Imprimir el número acumulado de admitidos hasta ahora/]
 O --> P[¿Quedan opciones de preferencia por procesar?]
 P -- sí --> G
 end
-P -- no --> Q[Mostrar total final de aspirantes admitidos]
-Q --> R[Mostrar lista de aspirantes no admitidos]
+P -- no --> Q[/Mostrar total final de aspirantes admitidos/]
+Q --> R[/Mostrar lista de aspirantes no admitidos/]
 R --> S([Fin])
