@@ -21,7 +21,7 @@ L --> M[[Llamar función remove_admitted_aspirants para depurar tabla de aspiran
 M --> N{¿Quedan departamentos por procesar?}
 N -- sí --> I
 N -- no --> O[/Imprimir el número acumulado de admitidos hasta ahora/]
-O --> P[¿Quedan opciones de preferencia por procesar?]
+O --> P{¿Quedan opciones de preferencia por procesar?}
 P -- sí --> G
 end
 P -- no --> Q[/Mostrar total final de aspirantes admitidos/]
