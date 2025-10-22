@@ -18,7 +18,7 @@ I --> J[Tomar el departamento actual]
 J --> K[[Llamar función get_admitted_aspirants con los parámetros orden de preferencia de aspirante y departamento]]
 K --> L[Actualizar tabla de admitidos]
 L --> M[[Llamar función remove_admitted_aspirants para depurar tabla de aspirantes]]
-M --> N[¿Quedan departamentos por procesar?]
+M --> N{¿Quedan departamentos por procesar?}
 N -- sí --> I
 N -- no --> O[/Imprimir el número acumulado de admitidos hasta ahora/]
 O --> P[¿Quedan opciones de preferencia por procesar?]
