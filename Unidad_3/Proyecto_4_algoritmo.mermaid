@@ -1,0 +1,10 @@
+flowchart TD
+  A[/lectura de datos fuente/] --> B
+  B[Preprocesar los datos, eliminar lineas sin datos y valores atípicos] --> C
+  C[Aplicar standard.scaler para variables con rangos muy diferentes o encoder para variables categoricas] --> D
+  D[Subdividir datos en conjuntos de entrenamiento y control] -- entrenamiento --> E
+  D -- control --> F
+  E[Entrenar el modelo] --> F
+  F[Realizar predicciones con el modelo entrenado] --> G
+  G[Calcular las métricas de precisión del modelo] --> H
+  H[Visualizar el modelo]
